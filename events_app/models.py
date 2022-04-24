@@ -15,7 +15,7 @@ class Guest(db.Model):
     phone = db.Column(db.String(10), nullable=False)
     events_attending = db.relationship('Event', secondary='guest_event', back_populates='guests')
 
-class event_type(enum.IntEnum):
+class event_type(db.Enum):
     Party = 1
     Study = 2
     Networking = 3
@@ -40,7 +40,7 @@ class Event(db.Model):
     date_and_time = db.Column(db.DateTime)
     guests = db.relationship('Guest', secondary='guest_event', back_populates='events')
 
-    event_type = db.Column(db.Enum(event_type), default=event_type.Networking)
+    event_type = db.Column(db.Enum('event_type'), default=event_type.Networking)
 
 # TODO: Create a table `guest_event_table` with the following columns:
 # - event_id: Integer column (foreign key)
