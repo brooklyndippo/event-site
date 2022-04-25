@@ -11,6 +11,19 @@
     out the hardcoded values)
 -->
 
+{% for event in events%}
+
+<div class="event-container">
+    <h3><a href="/event/{{ event.id }}">TITLE: {{ event.title }}</a></h3>
+    <p><strong>Date and Time:</strong> {{event.date_and_time}} </p>
+    <p><strong>Description:</strong> {{event.description}} </p>
+    <p class="small-text">
+        {{ event.guests.count }}
+    </p>
+</div>
+
+{% endfor %}
+
 <div class="event-container">
     <h3><a href="/event/1">Zoom Party!</a></h3>
     <p><strong>Date and Time:</strong> Friday March 5, 2021 at 5:00 PM</p>

@@ -1,8 +1,10 @@
 """Create database models to represent tables."""
+from flask_sqlalchemy import SQLAlchemy
 from events_app import db
 from sqlalchemy.orm import backref
 
-# TODO: Create a model called `Guest` with the following fields:
+
+# TODO: Create a model called `Guest` with the ollowing fields:
 # - id: primary key
 # - name: String column
 # - email: String column
@@ -38,7 +40,7 @@ class Event(db.Model):
     title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(500))
     date_and_time = db.Column(db.DateTime)
-    guests = db.relationship('Guest', secondary='guest_event', back_populates='events')
+    guests = db.relationship('Guest', secondary='guest_event', back_populates='events_attending')
 
     event_type = db.Column(db.Enum('event_type'), default=event_type.Networking)
 
