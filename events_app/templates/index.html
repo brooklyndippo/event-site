@@ -6,12 +6,7 @@
 
 <a href="/create">+ New Event</a>
 
-<!-- 
-    TODO: Use the event objects to display the correct information (and take 
-    out the hardcoded values)
--->
-
-{% for event in events%}
+{% for event in events %}
 
 <div class="event-container">
     <h3><a href="/event/{{ event.id }}">TITLE: {{ event.title }}</a></h3>
